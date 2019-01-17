@@ -4,9 +4,16 @@ provider "google" {
    zone="europe-west2-c"
 }
 
+variable "machineType" {
+  default = "f1-micro"
+  type = "string"
+  description = "Compute engine machine type to be used"
+}
+
+
 resource "google_compute_instance" "vm_instance" {
    name = "terraform-workspace-instance"
-   machine_type = "f1-micro"
+   machine_type = "${var.machineType}"
    allow_stopping_for_update = true
    service_account {
       email = "${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
