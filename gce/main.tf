@@ -30,11 +30,19 @@ resource "google_service_account" "terraform_local_executor" {
    display_name = "tf-local-executor"
 }
 
-resource "google_service_account_iam_binding" "admin-account-iam" {
-  # service_account_id = "${google_service_account.terraform_local_executor.account_id}"
-   service_account_id = "projects/sandbox-devops-2018/serviceAccounts/${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
-   role        = "roles/editor"
-   members = [
+resource "google_project_iam_binding" "project" {
+  project = "sandbox-devops-2018"
+  role    = "roles/editor"
+  members = [
     "serviceAccount:${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
-   ]
+  ]
 }
+
+#resource "google_service_account_iam_binding" "admin-account-iam" {
+  # service_account_id = "${google_service_account.terraform_local_executor.account_id}"
+ #  service_account_id = "projects/sandbox-devops-2018/serviceAccounts/${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
+  # role        = "roles/editor"
+  # members = [
+  #  "serviceAccount:${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
+  # ]
+#}
