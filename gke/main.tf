@@ -16,7 +16,7 @@ resource "google_container_cluster" "primary" {
  #   "europe-west2-a"
  # ]
   network = "default"
-  project="sandbox-devops-2018"
+  project = "${data.google_project.project.id}"
 
   node_config {
     machine_type = "f1-micro"
@@ -37,4 +37,8 @@ resource "google_container_cluster" "primary" {
 
 output "name" {
   value = "${google_container_cluster.primary.name}"
+}
+
+output "projectId" {
+  value = "${data.google_project.project.id}"
 }
