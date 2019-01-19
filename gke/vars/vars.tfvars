@@ -1,5 +1,5 @@
 variable "clusterZone" {
-  description = "The clustername"
+  description = "The clusterzone"
   type        = "string"
   default     = ""
 }

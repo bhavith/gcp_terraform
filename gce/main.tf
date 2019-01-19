@@ -16,7 +16,7 @@ resource "google_compute_instance" "vm_instance" {
    machine_type = "${var.machineType}"
    allow_stopping_for_update = true
    service_account {
-      email = "${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
+      email = "tf-local-executor@sandbox-devops-2018.iam.gserviceaccount.com"
       scopes = [ "cloud-platform" ]
    }
    boot_disk {
@@ -32,18 +32,14 @@ resource "google_compute_instance" "vm_instance" {
    }
 }
 
-resource "google_service_account" "terraform_local_executor" {
+module "iam" {
+   source = "modules/iam"
    account_id = "tf-local-executor"
-   display_name = "tf-local-executor"
+   project = "sandbox-devops-2018"
+   role    = "roles/editor"
+   members = "serviceAccount:tf-local-executor@sandbox-devops-2018.iam.gserviceaccount.com"
 }
 
-resource "google_project_iam_binding" "project" {
-  project = "sandbox-devops-2018"
-  role    = "roles/editor"
-  members = [
-    "serviceAccount:${google_service_account.terraform_local_executor.account_id}@sandbox-devops-2018.iam.gserviceaccount.com"
-  ]
-}
 
 #resource "google_service_account_iam_binding" "admin-account-iam" {
   # service_account_id = "${google_service_account.terraform_local_executor.account_id}"
