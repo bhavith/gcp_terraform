@@ -1,7 +1,7 @@
 provider "google" {
    project="sandbox-devops-2018"
    region="europe-west2"
-   zone="europe-west2-c"
+   zone="${var.clusterzone}"
 }
 
 variable "machineType" {
