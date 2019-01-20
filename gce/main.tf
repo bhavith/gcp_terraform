@@ -33,7 +33,7 @@ resource "google_compute_instance" "vm_instance" {
 }
 
 module "iam" {
-   source = "modules/iam"
+   source = "./modules/iam"
    account_id = "tf-local-executor"
    project = "sandbox-devops-2018"
    role    = "roles/editor"
