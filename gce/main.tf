@@ -32,6 +32,13 @@ resource "google_compute_instance" "vm_instance" {
    }
 }
 
+module "cfs" {
+   source = "./modules/cfs"
+   filestorename = "cfs-gce-storage"
+   filestoresize =  1024
+}
+
+
 module "iam" {
    source = "./modules/iam"
    account_id = "tf-local-executor"
