@@ -22,9 +22,9 @@ resource "google_compute_instance" "vm_instance" {
    boot_disk {
       initialize_params {
         image = "debian-cloud/debian-9"    
-      } 
+      }
    }
-
+   metadata_startup_script = "touch /tmp/test.txt"
    network_interface {
      network = "default"
      access_config = {

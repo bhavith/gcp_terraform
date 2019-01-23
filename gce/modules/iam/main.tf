@@ -10,4 +10,5 @@ resource "google_project_iam_binding" "project" {
   members = [
    "${var.members}"    
   ]
+  depends_on =  ["google_service_account.terraform_local_executor"]
 }
