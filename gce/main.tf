@@ -24,7 +24,20 @@ resource "google_compute_instance" "vm_instance" {
         image = "debian-cloud/debian-9"    
       }
    }
-   metadata_startup_script = "touch /tmp/test.txt"
+
+#   provisioner "file" {
+#        source = "startup.sh"
+#        destination = "/tmp/startup.sh"
+#        connection {
+#                type = "ssh"
+#                user = "bhavithk"
+#                private_key = "${file("~/.ssh/google_compute_engine")}"
+#        }  
+#   }
+
+
+   metadata_startup_script = "touch /tmp/test.txt && touch /tmp/abc.xyz" 
+   
    network_interface {
      network = "default"
      access_config = {
