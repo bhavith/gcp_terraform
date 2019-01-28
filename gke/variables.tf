@@ -1,5 +1,5 @@
 variable "clustername" {}
 
 variable "clusterZone" {
-  type = "string"
-  }
+    type = "string"
+}
