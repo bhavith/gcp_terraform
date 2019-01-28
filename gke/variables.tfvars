@@ -1,1 +1,1 @@
-clustername = "gke-devops-cluster"
+variable "clustername" {}
