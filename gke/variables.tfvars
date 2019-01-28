@@ -1,1 +1,5 @@
-clustername = "gke-devops-cluster"
+variable "clustername" {}
+
+variable "clusterZone" {
+  type = "string"
+  }

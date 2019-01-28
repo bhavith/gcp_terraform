@@ -1,5 +1,2 @@
-variable "clusterZone" {
-  description = "The clusterzone"
-  type        = "string"
-  default     = ""
-}
+clusterZone = "europe-west2-c"
+clustername = "gkedevopscluster"

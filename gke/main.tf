@@ -1,15 +1,10 @@
-variable "clustername" {
-  description = "The clustername"
-  type     = "string"
-}
-
 locals {
   default_name_prefix = "${var.clustername}-01"
 }
 
 resource "google_container_cluster" "primary" {
   name               = "${local.default_name_prefix}"
-  zone               =  "europe-west2-b"
+  zone               =  "${var.clusterZone}"
   initial_node_count = 3
 
  # additional_zones = [

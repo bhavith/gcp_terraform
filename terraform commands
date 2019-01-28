@@ -1,12 +1,8 @@
 
 terraform init
 
-terraform plan --var-file=variables.tfvars
+terraform workspace new devops-prod || terraform workspace select devops-prod
 
-terraform apply --var-file=variables.tfvars
+terraform plan --var-file=vars/vars.tfvars
 
-terraform workspace new devops-prod
-
-
-terraform workspace select devops-prod
-
+terraform apply --var-file=vars/vars.tfvars

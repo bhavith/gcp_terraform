@@ -1,1 +1,1 @@
-{"Modules":[{"Source":"modules/iam","Key":"1.iam;modules/iam","Version":"","Dir":".terraform/modules/632c9e54cea3c8bf372f673eecf66f60","Root":""},{"Source":"./modules/iam","Key":"1.iam;./modules/iam","Version":"","Dir":".terraform/modules/b2973de6931af419200dea3bad559182","Root":""}]}
+{"Modules":[{"Source":"./modules/cfs","Key":"1.cfs;./modules/cfs","Version":"","Dir":".terraform/modules/b5377d4a4bb2d6d869615c67c90a82ef","Root":""},{"Source":"./modules/iam","Key":"1.iam;./modules/iam","Version":"","Dir":".terraform/modules/b2973de6931af419200dea3bad559182","Root":""}]}

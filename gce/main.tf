@@ -22,15 +22,35 @@ resource "google_compute_instance" "vm_instance" {
    boot_disk {
       initialize_params {
         image = "debian-cloud/debian-9"    
-      } 
+      }
    }
 
+#   provisioner "file" {
+#        source = "startup.sh"
+#        destination = "/tmp/startup.sh"
+#        connection {
+#                type = "ssh"
+#                user = "bhavithk"
+#                private_key = "${file("~/.ssh/google_compute_engine")}"
+#        }  
+#   }
+
+
+   metadata_startup_script = "touch /tmp/test.txt && touch /tmp/abc.xyz" 
+   
    network_interface {
      network = "default"
      access_config = {
      }
    }
 }
+
+module "cfs" {
+   source = "./modules/cfs"
+   filestorename = "cfs-gce-storage"
+   filestoresize =  1024
+}
+
 
 module "iam" {
    source = "./modules/iam"
