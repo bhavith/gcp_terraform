@@ -1,8 +1,3 @@
-variable "clustername" {
-  description = "The clustername"
-  type     = "string"
-}
-
 locals {
   default_name_prefix = "${var.clustername}-01"
 }
