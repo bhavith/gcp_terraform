@@ -1,7 +1,7 @@
 resource "google_compute_instance" "vm_instance" {
    name = "terraform-workspace-instance-02"
    machine_type = "${var.machinetype}"
-   zone = "europe-west2-c"
+   zone = "${var.instanceZone}"
    network_interface {
      network = "default"
      access_config = {
@@ -18,5 +18,5 @@ resource "google_compute_instance" "vm_instance" {
         image = "debian-cloud/debian-9"    
       }   
    }
-   metadata = "${merge(map( "tf_depends_id", "${var.depends_id}"),var.metadata)}"
+   metadata = "${var.metadata}"
 }   

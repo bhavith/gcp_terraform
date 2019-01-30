@@ -1,7 +1,7 @@
 data "template_file" "core-init" {
     template = "${file("scripts/startup.sh")}"
     vars = {
-       ipaddress = "10.195.105.42"
+       ipaddress = "${var.cfsipaddress}"
     }
 }
 
@@ -24,7 +24,8 @@ module "gce-master" {
     source = "modules/gce-mod"
  #   zone = "eu-west2-c"
   #  network = "default"
-    machinetype = "f1-micro"
+    machinetype = "${var.gcemachinetype}"
+    instanceZone = "${var.instanceZone}"
     metadata {
        startup-script          = "${data.template_file.core-init.rendered}"
     }

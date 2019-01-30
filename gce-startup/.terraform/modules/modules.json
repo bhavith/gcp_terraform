@@ -1,1 +1,1 @@
-{"Modules":[{"Source":"modules/gce-mod","Key":"1.gce-master;modules/gce-mod","Version":"","Dir":".terraform/modules/5e71dbda0fcbd33afa44bb9f447180db","Root":""},{"Source":"modules/cfs","Key":"1.cfs;modules/cfs","Version":"","Dir":".terraform/modules/170011e12b546e04fb5e8fa9e0bac36f","Root":""}]}
+{"Modules":[{"Source":"modules/gce-mod","Key":"1.gce-master;modules/gce-mod","Version":"","Dir":".terraform/modules/5e71dbda0fcbd33afa44bb9f447180db","Root":""}]}
