@@ -1,9 +1,16 @@
 resource "google_compute_instance" "vm_instance" {
-   name = "terraform-workspace-instance-01"
+   name = "terraform-workspace-instance-02"
    machine_type = "${var.machinetype}"
+   zone = "europe-west2-c"
+   network_interface {
+     network = "default"
+     access_config = {
+     }
+   }
+   project = "${data.google_project.project.id}"
    allow_stopping_for_update = true
    service_account {
-      email = "tf-local-executor@sandbox-devops-2018.iam.gserviceaccount.com"
+      email = "314462922776-compute@developer.gserviceaccount.com"
       scopes = [ "cloud-platform" ]
    }
    boot_disk {
@@ -11,5 +18,5 @@ resource "google_compute_instance" "vm_instance" {
         image = "debian-cloud/debian-9"    
       }   
    }
-   metadata = "${merge(map("startup-script", "${var.startup_script}", "tf_depends_id", "${var.depends_id}"),var.metadata)}"
+   metadata = "${merge(map( "tf_depends_id", "${var.depends_id}"),var.metadata)}"
 }   

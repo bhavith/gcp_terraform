@@ -1,0 +1,5 @@
+variable "filestorename" {
+}
+
+variable "filestoresize" {
+}
